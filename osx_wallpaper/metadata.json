@@ -1,0 +1,15 @@
+{
+  "name": "shrank-osx_wallpaper",
+  "version": "0.1.0",
+  "author": "shrank",
+  "summary": "wrapper for setwp to change wallpaper on max osx",
+  "license": "MIT License",
+  "source": "https://github.com/shrank/puppet_osx",
+  "project_page":"https://github.com/shrank/puppet_osx", 
+  "issues_url": "https://github.com/shrank/puppet_osx",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
