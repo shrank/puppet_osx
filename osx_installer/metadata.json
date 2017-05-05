@@ -1,6 +1,6 @@
 {
   "name": "shrank-osx_installer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "shrank",
   "summary": "helper types to install software on mac osx",
   "license": "MIT License",
