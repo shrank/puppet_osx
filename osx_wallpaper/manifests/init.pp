@@ -1,6 +1,21 @@
 # uses wpset from
 # https://github.com/alexcormier/setwp
 
+class osx_wallpaper {
+
+## Example code to install setwp
+#
+#  file { "/usr/local/bin":
+#    ensure => directory,
+#  }
+#  file { "/usr/local/bin/setwp":
+#    ensure  => file,
+#    content => file('osx_wallpaper/setwp'),
+#    mode => 'a=rx',
+#  }
+
+}
+
 define osx_wallpaper::set(
 String $format="stretch",
 String $color="0",
@@ -10,13 +25,13 @@ Boolean $refreshonly=false,
   if($name!="color")
   {
     exec{"set_osx_wallpaper":
-      command=>"/usr/bin/setwp --$format --color=$color $name",
+      command=>"/usr/local/bin/setwp --$format --color=$color $name",
       refreshonly=>$refreshonly,
       user=>$user,
     }
   }else{
     exec{"set_osx_bgcolor":
-      command=>"/usr/bin/setwp --color=$color",
+      command=>"/usr/local/bin/setwp --color=$color",
       refreshonly=>$refreshonly,
       user=>$user,
     }
