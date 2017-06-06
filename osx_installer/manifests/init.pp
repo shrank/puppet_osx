@@ -6,10 +6,17 @@ define osx_installer(
 {
   if($mode =="prefPane")
   {
-    osx_installer::prefPane_copy{$name:
-      ensure => $ensure,
-      source => $source,
+  case $ensure {
+    "installed":
+    {
+      exec{ "install_$name":
+        creates =>"/var/db/.puppet_prefPane_installed_$name",
+        cwd => "/Library/PreferencePanes/",
+        path    => ['/usr/bin', '/usr/sbin',],
+        command => "tar -xzf $source/$name && touch /var/db/.puppet_prefPane_installed_$name",
+      }
     }
+  }
   }
   else
   {
